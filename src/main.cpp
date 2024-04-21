@@ -89,7 +89,7 @@ void loop() {
   }
 
   // publish a message roughly every second.
-  if (millis() - lastMillis > 10000) {
+  if (millis() - lastMillis > 30000) {
     lastMillis = millis();
     client.publish("zgwAA54/Siren", "I'm here");
   }
