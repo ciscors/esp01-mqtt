@@ -53,6 +53,7 @@ void messageReceived(String &topic, String &payload) {
   Serial.println("incoming: " + topic + " - " + payload);
   if(payload.startsWith("leek=0")) {
     Serial.print("Leek is stopped!\n");
+    digitalWrite(in_led, LOW);
     alarm.detach();
   }
 
