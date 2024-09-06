@@ -71,8 +71,7 @@ void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, pass);
 
-  // Note: Local domain names (e.g. "Computer.local" on OSX) are not supported
-  // by Arduino. You need to set the IP address directly.
+ 
   client.begin("10.180.10.144", net);
   client.onMessage(messageReceived);
   pinMode(in_led, OUTPUT);
