@@ -11,6 +11,8 @@
 #include <MQTT.h>
 #include "Ticker.h"
 
+#define WATER_CHANELL  "zgwAA54/alarm"
+
 const char ssid[] = "dd-wrt";
 const char pass[] = "19731998";
 
@@ -38,14 +40,14 @@ void connect() {
   }
 
   Serial.print("\nconnecting...");
-  while (!client.connect("arduino", "", "")) {
+  while (!client.connect("arduino", "anatols", "test!2")) {
     Serial.print(".");
     delay(1000);
   }
 
   Serial.println("\nconnected!");
 
-  client.subscribe("zgwAA54/alarm");
+  client.subscribe(WATER_CHANELL);
   // client.unsubscribe("/hello");
 }
 
@@ -72,7 +74,7 @@ void setup() {
   WiFi.begin(ssid, pass);
 
  
-  client.begin("10.180.10.144", net);
+  client.begin("mx.acraft.in.ua", net);
   client.onMessage(messageReceived);
   pinMode(in_led, OUTPUT);
   digitalWrite(in_led, LOW);
